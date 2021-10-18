@@ -12,7 +12,11 @@
 
 <h4>first post</h4>
 <p>
-  <%= @user.microposts.first.content %>
+  <% if @user.microposts.count > 0 %>
+    <%= @user.microposts.first.content %>
+  <% else %>
+    ※まだポストの投稿がありません。
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
